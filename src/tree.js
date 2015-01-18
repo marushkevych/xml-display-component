@@ -60,43 +60,63 @@ var OpeningTag = React.createClass({
 
     return (
       <li>
-    {icon}
-        <span className="xml-element">
-          &lt;{this.props.data.name}
-          <span className="xml-attribute">{attributes}</span>{backSlush}&gt;
-        </span>
-      {this.props.data.value}
-        <span className="xml-element">
-          {closingTag}
-        </span>
+          {icon}
+          <span className="xml-element">
+            &lt;{this.props.data.name}
+            <span className="xml-attribute">{attributes}</span>{backSlush}&gt;
+          </span>
+          {this.props.data.value}
+          <span className="xml-element">
+            {closingTag}
+          </span>
       </li>
     );
+  }
+});
+
+var OpeningTagLink = React.createClass({
+  render: function(){
+    if(this.props.data.nodes){
+      return (
+        <a href="">
+          <OpeningTag data={this.props.data} />
+        </a>
+      );
+    } else {
+      return (
+        <OpeningTag data={this.props.data} />
+      );
+    }
+
   }
 });
 
 var ClosingTag = React.createClass({
   render: function(){
     var space = String.fromCharCode(160);
-    return this.props.data.nodes != null &&
-      <span className="xml-element"><li>{space}{space}&lt;&#47;{this.props.data.name}&gt;</li></span>
+    return this.props.data.nodes != null && <span className="xml-element"><li>{space}{space}&lt;&#47;{this.props.data.name}&gt;</li></span>
   }
 });
 
 var Tree = React.createClass({
   render: function() {
 
-    var children = "";
-    if(this.props.data.expand){
+    // var children = "";
+    // if(this.props.data.expand){
+    //
+    //   children = _.map(this.props.data.nodes, function(node){
+    //     return (<Tree data={node} />);
+    //   });
+    // }
 
-      children = _.map(this.props.data.nodes, function(node){
-        return (<Tree data={node} />);
-      });
-    }
+    var children = _.map(this.props.data.nodes, function(node){
+      return (<Tree data={node} />);
+    });
 
 
     return (
       <ul className="xml">
-        <OpeningTag data={this.props.data} />
+        <OpeningTagLink data={this.props.data} />
           {children}
         <ClosingTag data={this.props.data} />
       </ul>
