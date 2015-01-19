@@ -20,9 +20,11 @@ var data = {
 
         {
           name: "bla",
+          expand: true,
           nodes: [
             {
               name: 'Child',
+              expand: true,
               nodes: [
                 {
                   name: "foo"
@@ -75,10 +77,14 @@ var OpeningTag = React.createClass({
 });
 
 var OpeningTagLink = React.createClass({
+  handleClick: function(e){
+    e.preventDefault();
+    this.props.onLinkClick();
+  },
   render: function(){
     if(this.props.data.nodes){
       return (
-        <a href="">
+        <a onClick={this.handleClick} href="">
           <OpeningTag data={this.props.data} />
         </a>
       );
@@ -98,9 +104,17 @@ var ClosingTag = React.createClass({
   }
 });
 
-var Tree = React.createClass({
-  render: function() {
 
+var Tree = React.createClass({
+  getInitialState: function(){
+    return {expanded: true};
+  },
+  toggle: function(){
+    this.setState({expanded: !this.state.expanded})
+    this.props.data.expand = this.props.data.expand ? false : true;
+  },
+  render: function() {
+// lazy loading
     // var children = "";
     // if(this.props.data.expand){
     //
@@ -113,12 +127,15 @@ var Tree = React.createClass({
       return (<Tree data={node} />);
     });
 
+    var cx = React.addons.classSet;
+    var classes = cx({
+      'hidden': this.state.expanded != true
+    });
+
 
     return (
       <ul className="xml">
-        <OpeningTagLink data={this.props.data} />
-          {children}
-        <ClosingTag data={this.props.data} />
+        <OpeningTagLink onLinkClick={this.toggle} data={this.props.data} /><div className={classes}>{children}</div><ClosingTag data={this.props.data} />
       </ul>
     );
   }

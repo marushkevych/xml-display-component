@@ -20,9 +20,11 @@ var data = {
 
         {
           name: "bla",
+          expand: true,
           nodes: [
             {
               name: 'Child',
+              expand: true,
               nodes: [
                 {
                   name: "foo"
@@ -75,10 +77,14 @@ var OpeningTag = React.createClass({displayName: "OpeningTag",
 });
 
 var OpeningTagLink = React.createClass({displayName: "OpeningTagLink",
+  handleClick: function(e){
+    e.preventDefault();
+    this.props.onLinkClick();
+  },
   render: function(){
     if(this.props.data.nodes){
       return (
-        React.createElement("a", {href: ""}, 
+        React.createElement("a", {onClick: this.handleClick, href: ""}, 
           React.createElement(OpeningTag, {data: this.props.data})
         )
       );
@@ -98,9 +104,17 @@ var ClosingTag = React.createClass({displayName: "ClosingTag",
   }
 });
 
-var Tree = React.createClass({displayName: "Tree",
-  render: function() {
 
+var Tree = React.createClass({displayName: "Tree",
+  getInitialState: function(){
+    return {expanded: true};
+  },
+  toggle: function(){
+    this.setState({expanded: !this.state.expanded})
+    this.props.data.expand = this.props.data.expand ? false : true;
+  },
+  render: function() {
+// lazy loading
     // var children = "";
     // if(this.props.data.expand){
     //
@@ -113,12 +127,15 @@ var Tree = React.createClass({displayName: "Tree",
       return (React.createElement(Tree, {data: node}));
     });
 
+    var cx = React.addons.classSet;
+    var classes = cx({
+      'hidden': this.state.expanded != true
+    });
+
 
     return (
       React.createElement("ul", {className: "xml"}, 
-        React.createElement(OpeningTagLink, {data: this.props.data}), 
-          children, 
-        React.createElement(ClosingTag, {data: this.props.data})
+        React.createElement(OpeningTagLink, {onLinkClick: this.toggle, data: this.props.data}), React.createElement("div", {className: classes}, children), React.createElement(ClosingTag, {data: this.props.data})
       )
     );
   }
