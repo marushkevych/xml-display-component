@@ -75,7 +75,7 @@ var OpeningTag = React.createClass({displayName: "OpeningTag",
             "<", this.props.data.name, 
             React.createElement("span", {className: "xml-attribute"}, attributes), backSlush, ">"
           ), 
-          this.props.data.value, 
+          space, this.props.data.value, space, 
           React.createElement("span", {className: "xml-element"}, 
             closingTag
           )
