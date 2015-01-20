@@ -27,13 +27,16 @@ var data = {
               expand: true,
               nodes: [
                 {
-                  name: "foo"
+                  name: "foo",
+                  value: "no"
                 },
                 {
-                  name: "bar"
+                  name: "bar",
+                  value: ""
                 },
                 {
-                  name: "bla"
+                  name: "bla",
+                  value: "yes"
                 }
               ]
             }
@@ -45,11 +48,16 @@ var data = {
   ]
 };
 
+var space = String.fromCharCode(160);
+var doubleSpace = space+space;
+
 var OpeningTag = React.createClass({
   render: function(){
     var icon = "";
     if(this.props.data.nodes){
       icon = this.props.data.expand ? "- " : "+ ";
+    }else{
+      icon = doubleSpace;
     }
 
 
@@ -99,30 +107,27 @@ var OpeningTagLink = React.createClass({
 
 var ClosingTag = React.createClass({
   render: function(){
-    var space = String.fromCharCode(160);
-    return this.props.data.nodes != null && <span className="xml-element"><li>{space}{space}&lt;&#47;{this.props.data.name}&gt;</li></span>
+    var tag = doubleSpace+"</"+this.props.data.name+">";
+    return this.props.data.nodes != null && <span className="xml-element"><li>{tag}</li></span>
   }
 });
 
 
 var Tree = React.createClass({
+  shouldComponentUpdate: function(nextProps, nextState){
+    // console.log(this.props.data.name, this.props, nextProps, this.state, nextState);
+
+    return this.state != nextState;
+  },
   getInitialState: function(){
-    return {expanded: true};
+    return {expanded: this.props.data.expand === true};
   },
   toggle: function(){
     this.setState({expanded: !this.state.expanded})
     this.props.data.expand = this.props.data.expand ? false : true;
   },
   render: function() {
-// lazy loading
-    // var children = "";
-    // if(this.props.data.expand){
-    //
-    //   children = _.map(this.props.data.nodes, function(node){
-    //     return (<Tree data={node} />);
-    //   });
-    // }
-
+    // console.log('rendering', this.props.data.name)
     var children = _.map(this.props.data.nodes, function(node){
       return (<Tree data={node} />);
     });
@@ -135,7 +140,11 @@ var Tree = React.createClass({
 
     return (
       <ul className="xml">
-        <OpeningTagLink onLinkClick={this.toggle} data={this.props.data} /><div className={classes}>{children}</div><ClosingTag data={this.props.data} />
+        <OpeningTagLink onLinkClick={this.toggle} data={this.props.data} />
+          <div className={classes}>
+            {children}
+          </div>
+        <ClosingTag data={this.props.data} />
       </ul>
     );
   }

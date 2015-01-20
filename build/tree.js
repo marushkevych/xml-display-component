@@ -27,13 +27,16 @@ var data = {
               expand: true,
               nodes: [
                 {
-                  name: "foo"
+                  name: "foo",
+                  value: "no"
                 },
                 {
-                  name: "bar"
+                  name: "bar",
+                  value: ""
                 },
                 {
-                  name: "bla"
+                  name: "bla",
+                  value: "yes"
                 }
               ]
             }
@@ -45,11 +48,16 @@ var data = {
   ]
 };
 
+var space = String.fromCharCode(160);
+var doubleSpace = space+space;
+
 var OpeningTag = React.createClass({displayName: "OpeningTag",
   render: function(){
     var icon = "";
     if(this.props.data.nodes){
       icon = this.props.data.expand ? "- " : "+ ";
+    }else{
+      icon = doubleSpace;
     }
 
 
@@ -99,30 +107,27 @@ var OpeningTagLink = React.createClass({displayName: "OpeningTagLink",
 
 var ClosingTag = React.createClass({displayName: "ClosingTag",
   render: function(){
-    var space = String.fromCharCode(160);
-    return this.props.data.nodes != null && React.createElement("span", {className: "xml-element"}, React.createElement("li", null, space, space, "</", this.props.data.name, ">"))
+    var tag = doubleSpace+"</"+this.props.data.name+">";
+    return this.props.data.nodes != null && React.createElement("span", {className: "xml-element"}, React.createElement("li", null, tag))
   }
 });
 
 
 var Tree = React.createClass({displayName: "Tree",
+  shouldComponentUpdate: function(nextProps, nextState){
+    // console.log(this.props.data.name, this.props, nextProps, this.state, nextState);
+
+    return this.state != nextState;
+  },
   getInitialState: function(){
-    return {expanded: true};
+    return {expanded: this.props.data.expand === true};
   },
   toggle: function(){
     this.setState({expanded: !this.state.expanded})
     this.props.data.expand = this.props.data.expand ? false : true;
   },
   render: function() {
-// lazy loading
-    // var children = "";
-    // if(this.props.data.expand){
-    //
-    //   children = _.map(this.props.data.nodes, function(node){
-    //     return (<Tree data={node} />);
-    //   });
-    // }
-
+    // console.log('rendering', this.props.data.name)
     var children = _.map(this.props.data.nodes, function(node){
       return (React.createElement(Tree, {data: node}));
     });
@@ -135,7 +140,11 @@ var Tree = React.createClass({displayName: "Tree",
 
     return (
       React.createElement("ul", {className: "xml"}, 
-        React.createElement(OpeningTagLink, {onLinkClick: this.toggle, data: this.props.data}), React.createElement("div", {className: classes}, children), React.createElement(ClosingTag, {data: this.props.data})
+        React.createElement(OpeningTagLink, {onLinkClick: this.toggle, data: this.props.data}), 
+          React.createElement("div", {className: classes}, 
+            children
+          ), 
+        React.createElement(ClosingTag, {data: this.props.data})
       )
     );
   }
