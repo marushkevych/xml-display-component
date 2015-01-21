@@ -61,7 +61,7 @@ var OpeningTag = React.createClass({
     }
 
 
-    var backSlush = this.props.data.value ? "" : "/";
+    var backSlush = this.props.data.value || this.props.data.nodes ? "" : "/";
     var closingTag = this.props.data.value ? "</" + this.props.data.name + ">" : "";
     var attributes = "";
     _.each(this.props.data.attrs, function(value, key){
@@ -92,7 +92,7 @@ var OpeningTagLink = React.createClass({
   render: function(){
     if(this.props.data.nodes){
       return (
-        <a onClick={this.handleClick} href="">
+        <a onClick={this.handleClick}>
           <OpeningTag data={this.props.data} />
         </a>
       );

@@ -1,2 +1,4 @@
 build/.module-cache/
 bower_components/
+/nbproject/private/
+/nbproject/
