@@ -24,7 +24,44 @@ React.render(
 );
 ```
 
-where xml is JSON object - representation of xml file. See `example/xml.js' for JSON example.
+where xml is JSON object - representation of xml file. See below...
+
+## JSON representation of xml
+Also see `example/xml.js` for JSON example.
+```xml
+<rootNode>  
+    <child foo="bar">  
+        <element1> value </element1>
+        <element2> another value </element2>
+    </child>
+    <emptyElement/>  
+</rootNode>
+```
+
+```JSON
+{
+  "name": "rootNode",
+  "nodes": [
+    {
+      "name": "child",
+      "attrs": {"foo":"bar"},
+      "nodes": [
+        {
+          "name": "element1",
+          "value": "value"
+        },
+        {
+          "name": "element2",
+          "value": "another value"
+        },
+      ]
+    },
+    {
+       "name": "emptyElement"
+    }
+  ]
+};
+```
 
 ## Example
 To run the example 
