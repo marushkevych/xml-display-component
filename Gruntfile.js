@@ -7,11 +7,11 @@ module.exports = function(grunt) {
             },
             example: {
                 src: './src/bowerify.js',
-                dest: 'example/XmlDisplayComponent.js'
+                dest: 'example/bower_components/xml-display-component/xml-display-component.js'
             },
             dist: {
                 src: './src/bowerify.js',
-                dest: 'XmlDisplayComponent.js'
+                dest: 'xml-display-component.js'
             }
         }
     });

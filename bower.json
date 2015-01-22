@@ -6,7 +6,7 @@
     "marushkevych <marushkevych@gmail.com>"
   ],
   "description": "Render foldable xml from json input",
-  "main": "XmlDisplayComponent.js",
+  "main": "xml-display-component.js",
   "moduleType": [
     "globals"
   ],
@@ -31,7 +31,6 @@
     "test",
     "tests",
     "Gruntfile.js",
-    "bower.json",
     "package.json"
   ],
   "dependencies": {
