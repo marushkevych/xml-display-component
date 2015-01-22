@@ -1,6 +1,6 @@
 {
   "name": "xml-display-component",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "homepage": "https://github.com/marushkevych/xml-display-component",
   "authors": [
     "marushkevych <marushkevych@gmail.com>"
@@ -12,6 +12,8 @@
   ],
   "keywords": [
     "xml",
+    "display",
+    "component",
     "tree",
     "recursive",
     "html",
