@@ -1,0 +1,11 @@
+{
+  "name": "xml-display-component-example",
+  "version": "0.0.0",
+  "authors": [
+    "marushkevych <marushkevych@gmail.com>"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "react": "~0.12.2"
+  }
+}
