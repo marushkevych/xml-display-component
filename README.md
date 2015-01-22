@@ -35,3 +35,13 @@ To run the example
     bower install
     ```
 - then navigate to index.html in your browser
+
+## Styling
+See `example/styles.css` for recommended styling
+
+To enabl fodling of elements use:
+```css
+div.hidden {
+  display: none;
+}
+```
