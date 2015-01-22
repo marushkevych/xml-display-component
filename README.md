@@ -24,10 +24,10 @@ React.render(
 );
 ```
 
-where xml is JSON object - representation of xml file. See `example/xml.js` for JSON example.
+where xml is JSON object - representation of xml file. See below...
 
 ## JSON representation of xml
-The following xml should be represented as JSON below
+Also see `example/xml.js` for JSON example.
 ```xml
 <rootNode>  
     <child foo="bar">  
