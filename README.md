@@ -28,7 +28,8 @@ React.render(
 where xml is JSON object - representation of xml file. See below...
 
 ## JSON representation of xml
-Also see `example/xml.js` for JSON example.
+
+#### The following xml:
 ```xml
 <rootNode>  
     <child foo="bar">  
@@ -38,6 +39,8 @@ Also see `example/xml.js` for JSON example.
     <emptyElement/>  
 </rootNode>
 ```
+
+#### Must be represented as:
 
 ```JSON
 {
@@ -63,6 +66,7 @@ Also see `example/xml.js` for JSON example.
   ]
 };
 ```
+See `example/xml.js`
 
 ## Example
 To run the example 
