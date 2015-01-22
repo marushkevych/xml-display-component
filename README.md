@@ -1,6 +1,7 @@
 # xml-display-component
 
 Render xml as expandable tree using ultrafast React.js
+![example](https://raw.githubusercontent.com/marushkevych/xml-display-component/master/exmple.png)
 
 ## Install
 
