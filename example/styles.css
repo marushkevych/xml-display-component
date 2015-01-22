@@ -7,19 +7,10 @@ div.hidden {
   display: none;
 }
 
-div.xml {
-  padding: 10px 0px 10px 0px;
-  margin:  0px 10px 0px 10px;
-}
-
 ul.xml {
   margin: 0;
   font-family: Courier New,Monaco;
   padding: 0px 0px 0px 40px;
-}
-
-ul.xml li {
-  margin: 0;
 }
 
 ul.xml a {
