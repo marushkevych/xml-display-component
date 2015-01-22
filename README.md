@@ -24,7 +24,7 @@ React.render(
 );
 ```
 
-where xml is JSON object - representation of xml file. See `example/xml.js' for JSON example.
+where xml is JSON object - representation of xml file. See `example/xml.js` for JSON example.
 
 ## Example
 To run the example 
