@@ -2,6 +2,6 @@
   "name": "xml-display-component-example",
   "version": "0.0.0",
   "dependencies": {
-    "xml-display-component": "marushkevych/xml-display-component#~0.0.1"
+    "xml-display-component": "~0.0.4"
   }
 }
