@@ -1,13 +1,7 @@
 .xml {
   list-style: none;
   background-color:#EEEEEE;
-}
-
-div.hidden {
-  display: none;
-}
-
-ul.xml {
+  text-decoration: none;
   margin: 0;
   font-family: Courier New,Monaco;
   padding: 0px 0px 0px 40px;
@@ -16,6 +10,10 @@ ul.xml {
 ul.xml a {
   text-decoration: none;
   font-family: Courier New,Monaco;
+}
+
+div.hidden {
+  display: none;
 }
 
 span.xml-element {
