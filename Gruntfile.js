@@ -6,14 +6,18 @@ module.exports = function(grunt) {
                 debug: true
             },
             example: {
-                src: './bowerify.js',
+                src: './src/bowerify.js',
                 dest: 'example/XmlDisplayComponent.js'
+            },
+            dist: {
+                src: './src/bowerify.js',
+                dest: 'XmlDisplayComponent.js'
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-watchify');
 
-    grunt.registerTask('default', ['watchify:example']);
+    grunt.registerTask('default', ['watchify:dist']);
     grunt.registerTask('watch', ['watchify:example:keepalive']);
 };

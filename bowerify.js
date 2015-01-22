@@ -1,1 +1,0 @@
-window.XmlDisplayComponent = require('./src/index');
