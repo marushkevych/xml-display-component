@@ -21,10 +21,20 @@
     "foldable",
     "expand",
     "collapse",
-    "react"
+    "react",
+    "json"
   ],
   "license": "MIT",
-  "ignore": ["./!(xml-display-component.js)"],
+  "ignore": [
+    "example",
+    "node_modules",
+    "bower_components",
+    "src",
+    "Gruntfile.js",
+    "README.md",
+    "exmple.png",
+    "package.json"
+  ],
   "dependencies": {
     "underscore": "~1.7.0",
     "react": "~0.12.2"
