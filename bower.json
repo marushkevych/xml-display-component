@@ -29,7 +29,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "Gruntfile.js",
+    "bower.json",
+    "package.json"
   ],
   "dependencies": {
     "underscore": "~1.7.0",
