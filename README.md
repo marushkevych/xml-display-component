@@ -6,7 +6,7 @@ Render xml as expandable tree using ultrafast React.js
 
 `bower install marushkevych/xml-display-component --save`
 
-## Usage (see 'example' folder)
+## Usage
 This package exposes global variable `XmlDisplayComponent`
 
 Say you have following html
@@ -25,3 +25,13 @@ React.render(
 ```
 
 where xml is JSON object - representation of xml file. See `example/xml.js' for JSON example.
+
+## Example
+To run the example 
+- change to example folder
+- install dependencies
+
+    ```
+    bower install
+    ```
+- then navigate to index.html in your browser
