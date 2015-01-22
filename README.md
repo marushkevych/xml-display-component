@@ -8,7 +8,7 @@ Here is how it looks in the browser:
 
 ## Install
 
-`bower install marushkevych/xml-display-component --save`
+`bower install xml-display-component --save`
 
 ## Usage
 This package exposes global variable `XmlDisplayComponent`
