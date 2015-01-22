@@ -3,6 +3,7 @@
 Render xml as expandable tree using ultrafast React.js
 
 Here is how it looks in the browser:
+
 ![example](https://raw.githubusercontent.com/marushkevych/xml-display-component/master/exmple.png)
 
 ## Install
