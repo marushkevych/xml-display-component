@@ -19,9 +19,7 @@ Say you have following html
 Use following script to render xml in content div:
 ```js
 React.render(
-    React.DOM.div({className: "xml"},
-        React.createElement(XmlDisplayComponent, {data: xml, expanded: true})
-    ),
+    React.createElement(XmlDisplayComponent, {data: xml, expanded: true}),
     document.getElementById('content')
 );
 ```
