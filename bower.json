@@ -22,17 +22,7 @@
     "react"
   ],
   "license": "MIT",
-  "ignore": [
-    "example",
-    "src",
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "Gruntfile.js",
-    "package.json"
-  ],
+  "ignore": ["./!(xml-display-component.js)"],
   "dependencies": {
     "underscore": "~1.7.0",
     "react": "~0.12.2"
