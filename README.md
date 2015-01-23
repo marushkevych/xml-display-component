@@ -57,6 +57,12 @@ function displayXmlTree() {
 }
 ```
 
+And then use it like this:
+```html
+<!-- xmlJson is a scope variable with json representation of xml-->
+<div display-xml-tree="xmlJson"></div>
+```
+
 ## JSON representation of xml
 
 #### The following xml:
