@@ -11,7 +11,7 @@ var ClosingTag = React.createClass({displayName: "ClosingTag",
         var tag = doubleSpace + "</" + this.props.data.name + ">";
         return this.props.data.nodes != null &&
             React.DOM.div({className: classes},
-                React.DOM.span({className: "xml-element", href:""},
+                React.DOM.span({className: "xml-element"},
                     React.DOM.li(null, tag)
                 )
             );
@@ -65,7 +65,7 @@ var OpeningTagLink = React.createClass({displayName: "OpeningTagLink",
     render: function() {
         var data = this.props.data;
         if (data.nodes) {
-            return React.DOM.a({onClick: this.handleClick},
+            return React.DOM.a({onClick: this.handleClick, href:""},
                 OpeningTag( {data: data})
             );
         } else {
