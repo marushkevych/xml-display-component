@@ -39,8 +39,9 @@ React.render(
 where xml is JSON object - representation of xml file. See below...
 
 #### Using with Angular.js
-React,js integrates nicely with Angular, simply wrap React component with angular directive:
+React.js integrates nicely with Angular, simply wrap React component with angular directive:
 ```js
+// angular directive
 function displayXmlTree() {
     return {
         scope: {
