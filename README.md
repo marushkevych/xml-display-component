@@ -10,6 +10,12 @@ Here is how it looks in the browser:
 
 `bower install xml-display-component --save`
 
+```html
+<script src="bower_components/react/react-with-addons.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
+<script src="bower_components/xml-display-component/xml-display-component.js"></script>
+```
+
 ## Usage
 This package exposes global variable `XmlDisplayComponent`
 
