@@ -8,7 +8,7 @@ var OpeningTagLink = React.createClass({displayName: "OpeningTagLink",
     render: function() {
         var data = this.props.data;
         if (data.nodes) {
-            return React.DOM.a({onClick: this.handleClick, href:""},
+            return React.DOM.a({onClick: this.handleClick},
                 OpeningTag( {data: data})
             );
         } else {
