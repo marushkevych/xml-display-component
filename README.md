@@ -6,6 +6,8 @@ Here is how it looks in the browser:
 
 ![example](https://raw.githubusercontent.com/marushkevych/xml-display-component/master/exmple.png)
 
+> Note: starting from version 0.1.0, its compatible with Angular.js (not using `<a>` tag)
+
 ## Install
 
 `bower install xml-display-component --save`
@@ -35,6 +37,24 @@ React.render(
 ```
 
 where xml is JSON object - representation of xml file. See below...
+
+#### Using with Angular.js
+React,js integrates nicely with Angular, simply wrap React component with angular directive:
+```js
+function displayXmlTree() {
+    return {
+        scope: {
+            xml: '=displayXmlTree'
+        },
+        link: function(scope, el) {
+            React.render(
+                React.createElement(XmlDisplayComponent, {data: scope.xml, expanded: true}),
+                el[0]
+            );
+        }
+    };
+}
+```
 
 ## JSON representation of xml
 

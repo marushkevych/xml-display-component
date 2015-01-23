@@ -7,12 +7,15 @@ var OpeningTagLink = React.createClass({displayName: "OpeningTagLink",
     },
     render: function() {
         var data = this.props.data;
+        var style = {
+            cursor: "pointer"
+        };
         if (data.nodes) {
-            return React.DOM.a({onClick: this.handleClick},
-                OpeningTag( {data: data})
-            );
+            return React.DOM.span({onClick: this.handleClick, style: style},
+            OpeningTag({data: data})
+                    );
         } else {
-            return OpeningTag( {data: data});
+            return OpeningTag({data: data});
         }
 
     }
