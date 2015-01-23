@@ -11,7 +11,7 @@ var ClosingTag = React.createClass({displayName: "ClosingTag",
         var tag = doubleSpace + "</" + this.props.data.name + ">";
         return this.props.data.nodes != null &&
             React.DOM.div({className: classes},
-                React.DOM.span({className: "xml-element"},
+                React.DOM.span({className: "xml-element", href:""},
                     React.DOM.li(null, tag)
                 )
             );
