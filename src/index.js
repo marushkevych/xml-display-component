@@ -9,6 +9,10 @@ var Tree = React.createClass({displayName: "Tree",
         return this.state != nextState;
     },
     getInitialState: function() {
+        // if we saved the expand state to the moel - use it
+        if(this.props.data.expand != null){
+            return {expanded: this.props.data.expand};
+        }
         return {expanded: this.props.expanded || false};
     },
     toggle: function() {
