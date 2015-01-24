@@ -9,7 +9,7 @@ var Tree = React.createClass({displayName: "Tree",
         return this.state != nextState;
     },
     getInitialState: function() {
-        // if we saved the expand state to the moel - use it
+        // if we saved the expand state to the model - use it
         if(this.props.data.expand != null){
             return {expanded: this.props.data.expand};
         }
